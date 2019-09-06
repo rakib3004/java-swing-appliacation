@@ -1,7 +1,5 @@
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-
-
 public class MainClass {
     
     
@@ -11,10 +9,8 @@ public class MainClass {
         NumberProcessing processing_unit_1;
         int result;
   
-        int input_number_from_user=0;
-        
-        
-        
+        int input_number_from_user=0;     
+                
         processing_unit_1 =new NumberProcessing();
         
         String input_as_string ;
@@ -23,41 +19,26 @@ public class MainClass {
         
         input_number_from_user =Integer.parseInt(input_as_string);
         
-           result=processing_unit_1.getSumofOdd(input_number_from_user);
-           
- 
-           
+         result=processing_unit_1.getSumofOdd(input_number_from_user);
+                     
          JOptionPane.showMessageDialog(null, "The result of Odd number Summation : "+result);
          
         result=processing_unit_1.getSumofPrime(input_number_from_user); 
          
     JOptionPane.showMessageDialog(null,"The result of Prime number Summation : " +result);
-    
-    
-        
-     
+                  
     }
     
 }
-
-
-
-
-public class NumberProcessing {
-    
-    
-    
+public class NumberProcessing {   
     
     
     public NumberProcess()
     {
-        
-        
-    }
-    
-    
-    
-  public int   getSumofOdd(int  targetNumber)
+                
+    }  
+           
+        public int   getSumofOdd(int  targetNumber)
   {
       
      
@@ -65,24 +46,17 @@ public class NumberProcessing {
       
     int   firstOdd=1;
     
-    int iterator;
-    
+    int iterator;   
     
     for(iterator=firstOdd;iterator<=targetNumber;iterator=iterator+2)
     {
-       sumOfOdd=sumOfOdd+iterator;
-              
+       sumOfOdd=sumOfOdd+iterator;              
     }
-    
-    
-    
+          
     return sumOfOdd;
-    
-      
-      
+               
   }
-  
-  
+    
  public int   getSumofPrime(int  targetNumber)
   {
       int putPrime=0;
@@ -91,39 +65,25 @@ public class NumberProcessing {
       
   int firstNumber=2;
     
-    int iterator,iterator_2;
-    
-    
-    
+    int iterator,iterator_2;    
+       
     for(iterator=firstNumber;iterator<=targetNumber;iterator++)
     {
           putPrime= iterator;
-        for(iterator_2=2;iterator_2<=(iterator/2);iterator_2++)
-            
-        {
-        
-            if(iterator%iterator_2==0)
-                
+        for(iterator_2=2;iterator_2<=(iterator/2);iterator_2++)            
+        {        
+            if(iterator%iterator_2==0)                
             {
              putPrime=0;
-             break;
-             
+             break;             
             }
-            
-            
-            }
-     
+                        
+            }    
         
        sumOfPrime=sumOfPrime+putPrime;
-        }
-        
-  
-   
-    
-    
-    return sumOfPrime;
-    
-      
-      
+        }       
+         
+    return sumOfPrime;   
+            
   }
 }

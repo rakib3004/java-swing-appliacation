@@ -1,22 +1,17 @@
 import javax.swing.JOptionPane;
 
-
 public class Linear_Binary_Search {
 
     public static void main(String[] args) {
-
 
         int i;
 
         int n;
         String s;
 
-
         s = JOptionPane.showInputDialog("Input the size of your array>>>>");
 
-
         n = Integer.parseInt(s);
-
 
         int[] a = new int[n];
         int j = 0;
@@ -27,12 +22,9 @@ public class Linear_Binary_Search {
 
             a[i] = Integer.parseInt(s);
 
-
         }
 
-
         int f = 0;
-
 
         for (i = 0; i < n - 1; i++) {
 
@@ -44,16 +36,13 @@ public class Linear_Binary_Search {
                 f = 0;
                 break;
             }
-
         }
-
 
         int item;
 
         s = JOptionPane.showInputDialog("\n\nEnter Your Desired item>>>>>");
 
         item = Integer.parseInt(s);
-
 
         if (f == 1) {
 
@@ -63,9 +52,7 @@ public class Linear_Binary_Search {
         } else {
             JOptionPane.showMessageDialog(null ,"\n\n******Your Array is not  sorted****** \n");
             JOptionPane.showMessageDialog(null ,"\n\nNow Start Linear Search...............\n");
-
         }
-
 
         if (f == 1) {
             int left_index = 0;
@@ -76,7 +63,6 @@ public class Linear_Binary_Search {
             while (left_index <= right_index) {
 
                 if (a[mid] == item) {
-
 
                     JOptionPane.showMessageDialog(null ,"\n\nThe item is found!!!\n");
                     JOptionPane.showMessageDialog(null ,"\n\nThe item is at " + mid + " th index in this array.\n\n");
@@ -92,28 +78,19 @@ public class Linear_Binary_Search {
                 mid = (left_index + right_index) / 2;
 
             }
-
             JOptionPane.showMessageDialog(null ,"\n\nThe item is not found in this array.!!!!!\n\n");
 
         } else {
-
-
             for (i = 0; i < n; i++) {
                 if (a[i] == item) {
-
-
 
                     JOptionPane.showMessageDialog(null ,"\n\nThe item is found!!!\n");
                     JOptionPane.showMessageDialog(null ,"\n\nThe item is at " + i + " th index in this array.\n\n");
                     return ;
 
                 }
-
-
             }
-
             JOptionPane.showMessageDialog(null ,"\n\nThe item is not found in this array.!!!!!\n\n");
-
         }
     }
 }

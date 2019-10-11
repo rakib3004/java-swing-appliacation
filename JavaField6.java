@@ -41,7 +41,7 @@ public class Test extends JFrame {
     text_field.setHorizontalAlignment(JTextField.CENTER);
     descrip.add(text_field);
 
-    cursor = new Cursor(Cursor.WAIT_CURSOR);
+    cursor = new Cursor(Cursor.HAND_CURSOR);
     button = new JButton("Clear");
     button.setBounds(500,image.getIconHeight()-200,120,75);
     button.setForeground(Color.WHITE);
@@ -71,6 +71,7 @@ public class Test extends JFrame {
     text_field.addActionListener(new ActionListener() {
 
         public void actionPerformed(ActionEvent e) {
+            text_area.setText("");
             int number = Integer.parseInt(text_field.getText());
             int iterator,calculation;
          String   get_number, get_iterator , get_calculation;
@@ -88,7 +89,7 @@ public class Test extends JFrame {
     button.addActionListener(new ActionListener() {
 
         public void actionPerformed(ActionEvent e) {
-            text_area.append("");
+            text_area.setText("");
         }
     });
 
@@ -107,6 +108,5 @@ public static void main(String[] args){
    frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
    frame.setTitle("Operation Overdrive");
    frame.setBounds(100,0,900,800);
-
-}
+    }
 }

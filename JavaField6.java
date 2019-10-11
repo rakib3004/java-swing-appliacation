@@ -24,7 +24,7 @@ public class Test extends JFrame {
     img_label = new JLabel(image);
     img_label.setBounds(0,0,image.getIconWidth(),image.getIconHeight()-45);
     descrip.add(img_label);
-    text_label =new JLabel("Enter Any  Number :");
+    text_label =new JLabel("Input :");
     text_label.setBounds(image.getIconWidth(),0,(900-image.getIconWidth())/2,(image.getIconHeight()-45)/2);
     text_label.setForeground(Color.BLUE);
     text_label.setOpaque(true);
@@ -71,17 +71,23 @@ public class Test extends JFrame {
     text_field.addActionListener(new ActionListener() {
 
         public void actionPerformed(ActionEvent e) {
-            text_area.setText("");
-            int number = Integer.parseInt(text_field.getText());
-            int iterator,calculation;
-         String   get_number, get_iterator , get_calculation;
-            for(iterator=1;iterator<=10;iterator++){
-                calculation = number * iterator;
+            String get_value = text_field.getText();
+            if (get_value.isEmpty()) {
+text_area.setText("Please Enter an integer value .");
+            }
+            else {
+                text_area.setText("Output:\n");
+                int number = Integer.parseInt(text_field.getText());
+                int iterator, calculation;
+                String get_number, get_iterator, get_calculation;
+                for (iterator = 1; iterator <= 10; iterator++) {
+                    calculation = number * iterator;
 
-               get_calculation= String.valueOf(calculation);
-                get_number = String.valueOf(number);
-               get_iterator =String.valueOf(iterator);
-               text_area.append(get_number+" X "+get_iterator+" = "+get_calculation+"\n");
+                    get_calculation = String.valueOf(calculation);
+                    get_number = String.valueOf(number);
+                    get_iterator = String.valueOf(iterator);
+                    text_area.append(get_number + " X " + get_iterator + " = " + get_calculation + "\n");
+                }
             }
         }
     });

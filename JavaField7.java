@@ -12,10 +12,11 @@ public class RadioButtonDemo extends  JFrame {
     private Container concepts;
     private JRadioButton radio1,radio2,radio3,radio4,radio5;
     private  JLabel label;
-    private Font font_style;
+    private Font font_style,font_style2;
     private ButtonGroup buttonGroup;
     private Cursor cursor;
     private JTextArea jTextArea;
+    private  JCheckBox jCheckBox1,jCheckBox2,jCheckBox3,jCheckBox4,jCheckBox5;
     RadioButtonDemo(){
 initialization();
     }
@@ -24,13 +25,14 @@ this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 this.setBounds(0,0,1500,1300);
 this.setTitle("Radio Button");
 font_style = new Font("Switch",Font.BOLD,23);
+font_style = new Font("Key",Font.BOLD,13);
 
 
  concepts = this.getContentPane();
  concepts.setLayout(null);
- concepts.setBackground(Color.white);
+ concepts.setBackground(Color.red);
 
- buttonGroup = new ButtonGroup();
+
 
  label = new JLabel("  What is your interesting field");
  label.setBounds(50,0,400,175);
@@ -101,7 +103,7 @@ radio5 = new JRadioButton("Environment Science");
         buttonGroup.add(radio5);*/
 
         jTextArea = new JTextArea();
-        jTextArea.setBounds(500,50,1000,1000);
+        jTextArea.setBounds(500,50,1000,250);
         jTextArea.setForeground(Color.ORANGE);
         jTextArea.setFont(font_style);
         jTextArea.setLineWrap(true);
@@ -109,6 +111,32 @@ radio5 = new JRadioButton("Environment Science");
         jTextArea.setOpaque(true);
         jTextArea.setBackground(Color.GRAY);
         concepts.add(jTextArea);
+
+        buttonGroup = new ButtonGroup();
+
+        jCheckBox1 = new JCheckBox("Computer");
+        jCheckBox1.setBounds(550,300,100,70);
+        concepts.add(jCheckBox1);
+
+
+         jCheckBox3 = new JCheckBox("Books");
+        jCheckBox3.setBounds(550,500,100,70);
+        concepts.add(jCheckBox3);
+
+         jCheckBox4 = new JCheckBox("Laboratory");
+        jCheckBox4.setBounds(550,600,100,70);
+        concepts.add(jCheckBox4);
+
+         jCheckBox5 = new JCheckBox("Library");
+        jCheckBox5.setBounds(550,400,100,70);
+        concepts.add(jCheckBox5);
+
+/* buttonGroup.add(jCheckBox1);
+buttonGroup.add(jCheckBox3);
+buttonGroup.add(jCheckBox4);
+buttonGroup.add(jCheckBox5);*/
+
+
        Handler  handler = new Handler();
 
 radio5.addActionListener(handler);
@@ -125,19 +153,19 @@ radio1.addActionListener(handler);
         public void actionPerformed(ActionEvent event) {
             jTextArea.setText("");
                 if(event.getSource()==radio1){
-                    jTextArea.setText("Engineering & Technology is one of the most interesting \n sectors which describes and analysis about applied\n science and its application");
+                    jTextArea.setText("Engineering & Technology is one of the most interesting \n sectors which describes and analysis about applied\n science and its application.");
                 }
                 else if(event.getSource()==radio2){
-                    jTextArea.setText("Biological Science describes about planets and animals about their growth , behaviour , functionality and research about their mistry and unknown things ");
+                    jTextArea.setText("Biological Science describes about planets and animals\n about their growth , behaviour ,\nfunctionality and research about biological science. ");
                 }
                 else if(event.getSource()==radio3){
-                    jTextArea.setText("");
+                    jTextArea.setText("Business Studies is a very important study sector ,\n  marketing ,management,  business\n communication are some important factor in there . ");
                 }
                 else if(event.getSource()==radio4){
-                    jTextArea.setText("");
+                    jTextArea.setText("History and culture  is a part and parcel of a nation\n which describes the past politics ,\neconomy , culture , religion , lifestyle  etc.");
                 }
                 else if(event.getSource()==radio5){
-                    jTextArea.setText("");
+                    jTextArea.setText("Environment science study about nature , ecological diversity , ecological diversity and others impact by natural or artificial activities on environment.");
                 }
         }
     }

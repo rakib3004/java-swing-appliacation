@@ -11,6 +11,8 @@ private  Font font;
 private JScrollPane jScrollPane;
     private JButton button,button1;
     private Cursor cursor;
+    private  JPanel jPanel,jPanel2;
+    private JButton jButton,jButton1,jButton2,jButton3,jButton4,jButton5,jButton6,jButton7,jButton8,jButton9;
 
 
     ComboBoxDemo(){
@@ -62,11 +64,11 @@ public void primary_function(){
 
     cursor = new Cursor(Cursor.HAND_CURSOR);
     button = new JButton("Clear");
-    button.setBounds(450,20,120,65);
+    button.setBounds(450,200,120,65);
     button.setForeground(Color.WHITE);
     button.setCursor(cursor);
     button.setOpaque(true);
-    button.setBackground(Color.MAGENTA);
+    button.setBackground(Color.cyan);
     button.setFont(font);
     container.add(button);
 
@@ -79,6 +81,43 @@ public void primary_function(){
     button1.setBackground(Color.BLUE);
     button1.setFont(font);
     container.add(button1);
+
+    jPanel = new JPanel();
+    jPanel.setBounds(600,120,420,150);
+    jPanel.setBackground(Color.BLUE);
+    container.add(jPanel);
+
+jPanel2 = new JPanel();
+    jPanel2.setBounds(600,280,420,150);
+    jPanel2.setBackground(Color.GREEN);
+    container.add(jPanel2);
+
+    jButton = new JButton("0");
+    jButton1 = new JButton("1");
+jButton2 = new JButton("2");
+jButton3 = new JButton("3");
+jButton4 = new JButton("4");
+jButton5 = new JButton("5");
+jButton6 = new JButton("6");
+jButton7 = new JButton("7");
+jButton8 = new JButton("8");
+jButton9 = new JButton("9");
+
+
+
+jPanel.add(jButton);
+jPanel.add(jButton1);
+jPanel.add(jButton2);
+jPanel.add(jButton3);
+jPanel.add(jButton4);
+jPanel2.add(jButton5);
+jPanel2.add(jButton6);
+jPanel2.add(jButton7);
+jPanel2.add(jButton8);
+jPanel2.add(jButton9);
+
+
+
 
 jTextField.addKeyListener(new KeyListener() {
     @Override

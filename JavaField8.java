@@ -11,9 +11,10 @@ private  Font font;
 private JScrollPane jScrollPane;
     private JButton button,button1;
     private Cursor cursor;
-    private  JPanel jPanel,jPanel2;
-    private JButton jButton,jButton1,jButton2,jButton3,jButton4,jButton5,jButton6,jButton7,jButton8,jButton9;
-
+    private  JPanel jPanel,jPanel2,jPanel3,jPanel4,jPanel5;
+    private JButton jButton1,jButton2,jButton3,jButton4,jButton5,jButton6,jButton7,jButton8,jButton9,jButton10;
+    private JSpinner jSpinner;
+    private JTabbedPane jTabbedPane;
 
     ComboBoxDemo(){
     primary_function();
@@ -87,36 +88,59 @@ public void primary_function(){
     jPanel.setBackground(Color.BLUE);
     container.add(jPanel);
 
-jPanel2 = new JPanel();
+
+    jPanel2 = new JPanel();
     jPanel2.setBounds(600,280,420,150);
     jPanel2.setBackground(Color.GREEN);
     container.add(jPanel2);
 
-    jButton = new JButton("0");
+     jTabbedPane = new JTabbedPane();
+    jTabbedPane.setBounds(600,450,420,200);
+    jTabbedPane.setBackground(Color.white);
+    container.add(jTabbedPane);
+
+    jPanel3 = new JPanel();
+    jPanel3.setBackground(Color.RED);
+    jPanel4 = new JPanel();
+    jPanel4.setBackground(Color.blue);
+    jPanel5 = new JPanel();
+    jPanel5.setBackground(Color.green);
+
+
+    jTabbedPane.addTab("Start",jPanel3);
+jTabbedPane.addTab("Stop",jPanel4);
+jTabbedPane.addTab("Control",jPanel5);
+
     jButton1 = new JButton("1");
-jButton2 = new JButton("2");
-jButton3 = new JButton("3");
-jButton4 = new JButton("4");
-jButton5 = new JButton("5");
-jButton6 = new JButton("6");
-jButton7 = new JButton("7");
-jButton8 = new JButton("8");
-jButton9 = new JButton("9");
+    jButton2 = new JButton("2");
+    jButton3 = new JButton("3");
+    jButton4 = new JButton("4");
+    jButton5 = new JButton("5");
+    jButton6 = new JButton("6");
+    jButton7 = new JButton("7");
+    jButton8 = new JButton("8");
+    jButton9 = new JButton("9");
+    jButton10 = new JButton("10");
 
 
 
-jPanel.add(jButton);
 jPanel.add(jButton1);
 jPanel.add(jButton2);
 jPanel.add(jButton3);
 jPanel.add(jButton4);
-jPanel2.add(jButton5);
+jPanel.add(jButton5);
 jPanel2.add(jButton6);
 jPanel2.add(jButton7);
 jPanel2.add(jButton8);
 jPanel2.add(jButton9);
+jPanel2.add(jButton10);
 
+SpinnerNumberModel spinnerNumberModel = new SpinnerNumberModel(1101,1101,1133,1);
 
+jSpinner = new JSpinner(spinnerNumberModel );
+jSpinner.setBounds(620,20,140,50);
+jSpinner.setFont(font);
+container.add(jSpinner);
 
 
 jTextField.addKeyListener(new KeyListener() {

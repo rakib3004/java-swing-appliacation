@@ -1,4 +1,11 @@
-package swing;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package shantosapp;
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -8,14 +15,29 @@ public class ComboBoxDemo  extends JFrame {
 private JTextField jTextField, jTextField2;
 private JTextArea jTextArea;
 private  Font font;
-private JScrollPane jScrollPane;
-    private JButton button,button1;
+private JScrollPane jScrollPane,jScrollPane2;
+    private JButton button,button1,button0;
     private Cursor cursor;
     private  JPanel jPanel,jPanel2,jPanel3,jPanel4,jPanel5;
     private JButton jButton1,jButton2,jButton3,jButton4,jButton5,jButton6,jButton7,jButton8,jButton9,jButton10;
     private JSpinner jSpinner;
     private JTabbedPane jTabbedPane;
+    private JLabel jLabel , jLabel12,jLabel3;
+    private JTable jTable;
+    private String[] cols ={"Name","College","University","Dept."};
+    private String[][] rows = {{"Rakib","NDC","DU","IIT"},
+    {"Irfan","NDC","CUET","EEE"},
+    {"Mahin","NDC","IUT","CSE"},
+    {"Rafi","RUMC","CUET","CSE"},
+        {"Musfique","DRMC","DU","IIT"} ,
+                {"Nadim","ACC","RUET","ETE"} ,
+        {"Shihab","JJBSMRGC","BUTEX","WPE"} ,        {"Tahmeed","NDC","DU","IIT"} ,
 
+                {"Galib","NDC","DU","IIT"} ,
+        {"Tunan","NDC","SUST","SWE"} ,
+        {"Afnan","NDC","KUET","CE"} 
+
+    };
     ComboBoxDemo(){
     primary_function();
 }
@@ -62,7 +84,17 @@ public void primary_function(){
     jScrollPane = new JScrollPane(jTextArea);
     jScrollPane.setBounds(10,110,440,300);
     container.add(jScrollPane);
-
+    
+     cursor = new Cursor(Cursor.HAND_CURSOR);
+    button0 = new JButton("Color");
+    button0.setBounds(450,275,120,65);
+    button0.setForeground(Color.WHITE);
+    button0.setCursor(cursor);
+    button0.setOpaque(true);
+    button0.setBackground(Color.blue);
+    button0.setFont(font);
+    container.add(button0);
+    
     cursor = new Cursor(Cursor.HAND_CURSOR);
     button = new JButton("Clear");
     button.setBounds(450,200,120,65);
@@ -84,18 +116,18 @@ public void primary_function(){
     container.add(button1);
 
     jPanel = new JPanel();
-    jPanel.setBounds(600,120,420,150);
+    jPanel.setBounds(600,120,330,150);
     jPanel.setBackground(Color.BLUE);
     container.add(jPanel);
 
 
     jPanel2 = new JPanel();
-    jPanel2.setBounds(600,280,420,150);
+    jPanel2.setBounds(600,280,330,150);
     jPanel2.setBackground(Color.GREEN);
     container.add(jPanel2);
 
      jTabbedPane = new JTabbedPane();
-    jTabbedPane.setBounds(600,450,420,200);
+    jTabbedPane.setBounds(600,450,330,200);
     jTabbedPane.setBackground(Color.white);
     container.add(jTabbedPane);
 
@@ -142,6 +174,18 @@ jSpinner.setBounds(620,20,140,50);
 jSpinner.setFont(font);
 container.add(jSpinner);
 
+jLabel = new JLabel();
+jLabel.setBounds(950, 30, 300, 400);
+jLabel.setFont(font);
+jLabel.setBackground(Color.white);
+container.add(jLabel);
+jTable = new JTable(rows,cols);
+jTable.setSelectionBackground(Color.cyan);
+jTable.setEnabled(true);
+
+jScrollPane2 = new JScrollPane(jTable);
+jScrollPane2.setBounds(950, 30, 300, 400);
+container.add(jScrollPane2);
 
 jTextField.addKeyListener(new KeyListener() {
     @Override
@@ -165,6 +209,15 @@ button.addActionListener(new ActionListener() {
         jTextArea.setText("");
     }
 });
+
+button0.addActionListener(new ActionListener() {
+
+    public void actionPerformed(ActionEvent e) {
+      Color color = JColorChooser.showDialog(null,"Select a Color", Color.yellow);
+      container.setBackground(color);
+    }
+});
+
 
     button1.addActionListener(new ActionListener() {
 

@@ -1,9 +1,14 @@
 package swing;
+import javax.print.DocFlavor;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
-public class StudentTable  extends JFrame{
+public class StudentTable  extends JFrame implements ActionListener {
 
     private Container container;
     private JLabel jLabel,jLabel2,jLabel3,jLabel4,jLabel5;
@@ -27,7 +32,7 @@ private String [] rows = new String[4];
         container.setLayout(null);
         container.setBackground(Color.blue);
 
-        Font font = new Font("Font",Font.BOLD,18);
+        Font font = new Font("Font",Font.BOLD,14);
 
         jLabel = new JLabel("Student Registration");
         jLabel.setFont(font);
@@ -104,18 +109,77 @@ private String [] rows = new String[4];
         defaultTableModel.setColumnIdentifiers(columms);
         jTable.setModel(defaultTableModel);
         jTable.setFont(font);
-        jTable.setSelectionBackground(Color.ORANGE);
+        jTable.setSelectionBackground(Color.green);
         jTable.setOpaque(true);
-        jTable.setBackground(Color.GREEN);
+        jTable.setBackground(Color.red);
         jTable.setRowHeight(30);
 
         jScrollPane = new JScrollPane(jTable);
         jScrollPane.setBounds(10,360,740,265);
         container.add(jScrollPane);
+
+        jButton.addActionListener(this);
+        jButton2.addActionListener(this);
+         jButton3.addActionListener(this);
+         jButton4.addActionListener(this);
+jTable.addMouseListener(new MouseAdapter() {
+
+    public void mouseClicked(MouseEvent me){
+        int number_of_row = jTable.getSelectedRow();
+        String srting = defaultTableModel.getValueAt(number_of_row,0).toString();
+         String srting1 = defaultTableModel.getValueAt(number_of_row,1).toString();
+         String srting2 = defaultTableModel.getValueAt(number_of_row,2).toString();
+         String srting3 = defaultTableModel.getValueAt(number_of_row,3).toString();
+        jTextField.setText(srting);
+        jTextField2.setText(srting1);
+        jTextField3.setText(srting2);
+        jTextField4.setText(srting3);
+    }
+});
+
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+if(e.getSource()==jButton){
+rows[0] = jTextField.getText();
+rows[1] = jTextField2.getText();
+rows[2] = jTextField3.getText();
+rows[3] = jTextField4.getText();
+defaultTableModel.addRow(rows);
+
+}
+else if(e.getSource()==jButton4){
+   jTextField.setText("");
+     jTextField2.setText("");
+     jTextField3.setText("");
+    jTextField4.setText("");
+}
+   else if(e.getSource()==jButton2){
+    int number_of_row = jTable.getSelectedRow();
+    String srting  = jTextField.getText();
+    String srting1  = jTextField2.getText();
+    String srting2  = jTextField3.getText();
+    String srting3   = jTextField4.getText();
+    defaultTableModel.setValueAt(srting,number_of_row,0);
+ defaultTableModel.setValueAt(srting1,number_of_row,1);
+ defaultTableModel.setValueAt(srting2,number_of_row,2);
+ defaultTableModel.setValueAt(srting3,number_of_row,3);
+
+}
+   else if(e.getSource()==jButton3){
+int number_of_row = jTable.getSelectedRow();
+if(number_of_row>=0){
+    defaultTableModel.removeRow(number_of_row);
+}
+else{
+    JOptionPane.showMessageDialog(null,"Please Delete Any row");
+}
+}
+    }
     public static void main(String[] args) {
         StudentTable frame = new StudentTable();
         frame.setVisible(true);
     }
+
 }

@@ -30,13 +30,13 @@ public class MainClass {
     }
     
 }
-public class NumberProcessing {   
+ class NumberProcessing {
     
-    
-    public NumberProcess()
+
+    public NumberProcessing()
     {
-                
-    }  
+
+    }
            
         public int   getSumofOdd(int  targetNumber)
   {
